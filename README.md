@@ -16,4 +16,6 @@ thats why i ionic-resource-generater was born!
 - Update your `icon.png` and `splash.png` in root of resources folder
 - open terminal in resource folder and run `ionic-resource-generator generate` 🎉
 
+![code](https://github.com/harshzalavadiya/ionic-resource-generator/blob/master/screenshots/code-sample.png?raw=true)
+
 Feel free to raise issues or make PRs
