@@ -17,6 +17,7 @@ import (
 // Declarations
 const imgIcon = "icon.png"
 const imgSplash = "splash.png"
+const splashPath = string(os.PathSeparator) + "splash" + string(os.PathSeparator)
 
 func main() {
 	//Defining Version
@@ -78,7 +79,7 @@ func GenerateResources(pngs []string) {
 	for _, p := range pngs {
 		width, height := GetImageDimension(p)
 		src := LoadImage(imgIcon)
-		if strings.Contains(p, "\\splash\\") {
+		if strings.Contains(p, splashPath) {
 			src = LoadImage(imgSplash)
 		}
 		filters := map[string]gift.Filter{
