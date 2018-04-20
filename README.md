@@ -18,4 +18,4 @@ thats why i ionic-resource-generater was born!
 
 ![code](https://github.com/harshzalavadiya/ionic-resource-generator/blob/master/screenshots/code-sample.png?raw=true)
 
-Feel free to raise issues or make PRs
+Thank you all [contributers](https://github.com/harshzalavadiya/ionic-resource-generator/graphs/contributors) Feel free to raise issues or make PRs
