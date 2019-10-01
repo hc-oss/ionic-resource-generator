@@ -1,28 +1,35 @@
 name: Go
-on: [push]
-jobs:
 
+on: push
+
+jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+
     steps:
+      - name: Set up Go 1.12
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.12
+        id: go
 
-    - name: Set up Go 1.12
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.12
-      id: go
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v1
 
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v1
+      - name: cross compile - darwin-amd64
+        run: env GOOS=darwin GOARCH=amd64 go build -o dist/ionic-resource-generator-osx -v .
 
-    - name: Get dependencies
-      run: |
-        go get -v -t -d ./...
-        if [ -f Gopkg.toml ]; then
-            curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-            dep ensure
-        fi
+      - name: cross compile - linux-amd64
+        run: env GOOS=linux GOARCH=amd64 go build -o dist/ionic-resource-generator-linux -v .
 
-    - name: Build
-      run: go build -v .
+      - name: cross compile - windows-amd64
+        run: env GOOS=windows GOARCH=amd64 go build -o dist/ionic-resource-generator-windows.exe -v .
+
+      - name: Upload to release
+        uses: fnkr/github-action-ghr@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GHR_COMPRESS: xz
+          GHR_PATH: dist/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
