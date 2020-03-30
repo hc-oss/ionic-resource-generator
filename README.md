@@ -1,7 +1,9 @@
 # ionic-resource-generator
-whenever you run ionic resources basically it uploads your icon and splash screen and resizes and then downloads it once again and takes lots of time plus if you are running any build system that is offline or behind proxy then configuring it is just pain
+whenever you run ionic resources basically it uploads your icon and splash screen and resizes and then downloads it, It takes lots of time plus if you are running any build system that is offline or behind proxy then configuring it is just pain
 
-thats why i ionic-resource-generater was born!
+thats why ionic-resource-generater was born!
+
+> Update: Now ionic already has offline resources utility https://ionicframework.com/docs/cli/commands/cordova-resources
 
 ## Features
 - Works Offline ⚡
